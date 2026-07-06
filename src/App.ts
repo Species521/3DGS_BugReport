@@ -1,26 +1,12 @@
 ﻿import { Engine } from "@babylonjs/core/Engines/engine";
 import { Scene } from "@babylonjs/core/scene";
-
 import { Color3, Color4 } from "@babylonjs/core/Maths/math.color";
 import { Vector3 } from "@babylonjs/core/Maths/math.vector";
-
 import { MeshBuilder } from "@babylonjs/core/Meshes/meshBuilder";
 import { StandardMaterial } from "@babylonjs/core/Materials/standardMaterial";
-
 import { SceneLoaderFlags } from "@babylonjs/core/Loading/sceneLoaderFlags";
 import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
-
-import { HavokPlugin } from "@babylonjs/core/Physics/v2/Plugins/havokPlugin";
-import HavokPhysics from "@babylonjs/havok";
-
-import "@babylonjs/core/XR/features/WebXRDepthSensing";
-import "@babylonjs/core/Physics";
-import "@babylonjs/core/Loading/Plugins/babylonFileLoader";
-
-import { WebXRSessionManager } from "@babylonjs/core/XR/webXRSessionManager";
-
 import { loadScene } from "babylonjs-editor-tools";
-
 import { scriptsMap } from "./scripts";
 
 export class App {
@@ -28,227 +14,50 @@ export class App {
     private _engine: Engine | null = null;
     private _scene: Scene | null = null;
 
-    private _movementGain = 1.0;
-
     constructor() {
-        const canvas = document.getElementById(
-            "canvas"
-        ) as HTMLCanvasElement;
-
-        if (!canvas) {
-            throw new Error("Canvas not found");
-        }
-
+        const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+        if (!canvas) throw new Error("Canvas not found");
         this._canvas = canvas;
     }
 
     public async init(): Promise<void> {
         this._engine = new Engine(this._canvas, true, {
-            stencil: true,
-            antialias: true,
-            audioEngine: true,
-            adaptToDeviceRatio: true,
+            stencil: true, antialias: true, adaptToDeviceRatio: true,
         });
 
-        this._engine.setHardwareScalingLevel(1.35);
-
         this._scene = new Scene(this._engine);
-
-        this._scene.clearColor = new Color4(
-            0.1,
-            0.1,
-            0.1,
-            1
-        );
+        this._scene.clearColor = new Color4(0.1, 0.1, 0.1, 1);
 
         await this._handleLoad();
 
-        window.addEventListener(
-            "resize",
-            () => this._engine?.resize()
-        );
-
-        this._engine.runRenderLoop(() => {
-            this._scene?.render();
-        });
+        window.addEventListener("resize", () => this._engine?.resize());
+        this._engine.runRenderLoop(() => this._scene?.render());
     }
 
     private async _handleLoad(): Promise<void> {
-        if (!this._scene) {
-            return;
-        }
-
+        if (!this._scene) return;
         const scene = this._scene;
 
-        // Physics
-        const havok = await HavokPhysics();
-        scene.enablePhysics(
-            new Vector3(0, -9.81, 0),
-            new HavokPlugin(true, havok)
-        );
+        await loadScene("./scene/", "example.babylon", scene, scriptsMap, { quality: "high" });
 
-        // Load Babylon Editor scene
-        SceneLoaderFlags.ForceFullSceneLoadingForIncremental = true;
-        await loadScene(
-            "./scene/",
-            "example.babylon",
-            scene,
-            scriptsMap,
-            {
-                quality: "high",
-            }
-        );
-
-        // ---------------------------------------------------------------------
-        // Flat-Screen Multi-Touch Controls (Before AR mode)
-        // ---------------------------------------------------------------------
-        const touchCam = new ArcRotateCamera(
-            "flatScreenCamera",
-            Math.PI / 2,          // Horizontal rotation angle
-            Math.PI / 2.5,        // Vertical rotation angle
-            5,                    // Distance from target
-            new Vector3(0, 0, 2), // Target point (where the splat spawns)
-            scene
-        );
-
-        touchCam.minZ = 0.01;     
+        const touchCam = new ArcRotateCamera("flatScreenCamera", Math.PI / 2, Math.PI / 2.5, 5, new Vector3(0, 0, 2), scene);
+        touchCam.minZ = 0.01;
         touchCam.maxZ = 1000.0;
-        // Lower values increase response speed on touch screens
-        touchCam.angularSensibilityX = 1500; // 1-finger rotation speed
+        touchCam.angularSensibilityX = 1500;
         touchCam.angularSensibilityY = 1500;
-        touchCam.pinchPrecision = 60;        // 2-finger pinch zoom speed
-        touchCam.panningSensibility = 1000;  // 2-finger drag pan speed
+        touchCam.pinchPrecision = 60;
+        touchCam.panningSensibility = 1000;
+        touchCam.lowerRadiusLimit = 2.5;
+        touchCam.upperRadiusLimit = 15;
 
-        // Clamp distance constraints to avoid clipping inside the asset
-        touchCam.lowerRadiusLimit = 1.5;
-        touchCam.upperRadiusLimit = 20;
-
-        // Establish as active camera and bind the HTML canvas listeners
         scene.activeCamera = touchCam;
         touchCam.attachControl(this._canvas, true);
 
-        // Dark background sphere
-        const bgShield = MeshBuilder.CreateSphere(
-            "bgShield",
-            {
-                diameter: 500,
-                segments: 16,
-            },
-            scene
-        );
-
-        const shieldMat = new StandardMaterial(
-            "shieldMat",
-            scene
-        );
-
-        shieldMat.diffuseColor = new Color3(
-            0.1,
-            0.1,
-            0.1
-        );
-
-        shieldMat.specularColor = new Color3(
-            0,
-            0,
-            0
-        );
-
+        const bgShield = MeshBuilder.CreateSphere("bgShield", { diameter: 500, segments: 16 }, scene);
+        const shieldMat = new StandardMaterial("shieldMat", scene);
+        shieldMat.diffuseColor = new Color3(0.1, 0.1, 0.1);
         shieldMat.backFaceCulling = false;
         shieldMat.disableLighting = true;
-
         bgShield.material = shieldMat;
-
-        // WebXR
-        try {
-            const xrSupported =
-                await WebXRSessionManager.IsSessionSupportedAsync(
-                    "immersive-ar"
-                );
-
-            if (!xrSupported) {
-                return;
-            }
-
-            const xrHelper =
-                await scene.createDefaultXRExperienceAsync({
-                    uiOptions: {
-                        sessionMode: "immersive-ar",
-                        referenceSpaceType: "local-floor",
-                    },
-
-                    disableDefaultUI: false,
-                });
-
-            const movementScale = 1;
-
-            let initialPhysicalPos: Vector3 | null =
-                null;
-
-            scene.onBeforeRenderObservable.add(() => {
-                const xrCam =
-                    xrHelper.baseExperience.camera;
-
-                if (!xrCam) {
-                    return;
-                }
-
-                const currentPhysicalPos =
-                    xrCam.position;
-
-                if (!initialPhysicalPos) {
-                    initialPhysicalPos =
-                        currentPhysicalPos.clone();
-
-                    return;
-                }
-
-                const physicalDeltaX =
-                    currentPhysicalPos.x -
-                    initialPhysicalPos.x;
-
-                const physicalDeltaZ =
-                    currentPhysicalPos.z -
-                    initialPhysicalPos.z;
-
-                xrCam.position.x =
-                    initialPhysicalPos.x +
-                    physicalDeltaX *
-                        movementScale;
-
-                xrCam.position.z =
-                    initialPhysicalPos.z +
-                    physicalDeltaZ *
-                        movementScale;
-            });
-
-            console.log(
-                ">>> XR + Working Movement Gain active."
-            );
-        } catch (e) {
-            console.error(
-                "XR init error:",
-                e
-            );
-        }
-        
-        // Removed the original generic attachControl call from here,
-        // since touchCam handles explicit registration above.
-    }
-
-    public setMovementGain(
-        value: number
-    ): void {
-        this._movementGain = value;
-
-        console.log(
-            "Movement gain:",
-            this._movementGain
-        );
-    }
-
-    public dispose(): void {
-        this._scene?.dispose();
-        this._engine?.dispose();
     }
 }

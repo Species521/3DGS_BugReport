@@ -1,96 +1,55 @@
-﻿import { TransformNode, ImportMeshAsync, Vector3 } from "@babylonjs/core";
+﻿import { TransformNode, ImportMeshAsync, Vector3, Mesh } from "@babylonjs/core";
 import "@babylonjs/loaders/SPLAT/splatFileLoader";
-
 import { AdvancedDynamicTexture } from "@babylonjs/gui/2D/advancedDynamicTexture";
-import { TextBlock } from "@babylonjs/gui/2D/controls/textBlock";
+import { Image } from "@babylonjs/gui/2D/controls/image";
 
 export default class SplatLoaderScript {
     private _attachedNode: TransformNode;
-    private _fpsText: TextBlock | null = null;
+    private _currentSplat: Mesh | null = null;
+    private _currentIndex: number = 0;
+    private _urls: string[] = [
+        "https://github.com/Species521/3DGS_storage/blob/main/clusterFly_M.ply",
+        "https://github.com/Species521/3DGS_storage/blob/main/Carabus_cancellatus_oligoscythus_bukowiniacus/Carabus_cancellatus_oligoscythus_bukowiniacus_med_noPin.ply",
+        "https://github.com/Species521/3DGS_storage/blob/main/Ixodes_holocyclus/Ixodes_holocyclus_Mid_noPin.ply"
+    ];
 
-    constructor(attachedNode: TransformNode) {
-        this._attachedNode = attachedNode;
-    }
+    constructor(attachedNode: TransformNode) { this._attachedNode = attachedNode; }
 
     public async onStart(): Promise<void> {
-        console.log(">>> Splat loader initialized.");
-
-        const targetUrl =
-            "https://species521.github.io/3DGS_storage/clusterFly_S.ply";
-
         const scene = this._attachedNode.getScene();
+        const gui = AdvancedDynamicTexture.CreateFullscreenUI("UI", true, scene);
 
-        // --------------------------------------------------
-        // Babylon GUI FPS Counter
-        // --------------------------------------------------
+        const uiImage = new Image("overlay", "assets/graphics/UI_overlay_01.png");
+        gui.addControl(uiImage);
 
-        const gui = AdvancedDynamicTexture.CreateFullscreenUI(
-            "FPS_UI",
-            true,
-            scene
-        );
+        const createArrow = (name: string, left: string, direction: number) => {
+            const btn = new Image(name, "assets/graphics/arrow.png");
+            btn.width = "50px"; btn.height = "50px";
+            btn.left = left; btn.top = "40%";
+            btn.onPointerDownObservable.add(() => {
+                btn.alpha = 0.5; 
+                this._cycleSplat(direction);
+                setTimeout(() => btn.alpha = 1, 100);
+            });
+            gui.addControl(btn);
+        };
 
-        this._fpsText = new TextBlock();
-        this._fpsText.text = "FPS: 0";
-        this._fpsText.color = "white";
-        this._fpsText.fontSize = 24;
-        this._fpsText.top = "-45%";
-        this._fpsText.left = "-40%";
-        this._fpsText.textHorizontalAlignment = 0;
-        this._fpsText.textVerticalAlignment = 0;
+        createArrow("prev", "-40%", -1);
+        createArrow("next", "-30%", 1);
 
-        gui.addControl(this._fpsText);
+        this._loadSplat(this._urls[0]);
+    }
 
-        scene.onAfterRenderObservable.add(() => {
-            if (this._fpsText) {
-                this._fpsText.text =
-                    "FPS: " +
-                    scene.getEngine().getFps().toFixed(1);
-            }
-        });
+    private async _cycleSplat(dir: number) {
+        this._currentIndex = (this._currentIndex + dir + this._urls.length) % this._urls.length;
+        if (this._currentSplat) this._currentSplat.dispose();
+        await this._loadSplat(this._urls[this._currentIndex]);
+    }
 
-        // --------------------------------------------------
-        // Slow camera movement
-        // --------------------------------------------------
-
-        if (scene.activeCamera) {
-            scene.activeCamera.speed = 0.1;
-            console.log(
-                `>>> Camera speed reduced to: ${scene.activeCamera.speed}`
-            );
-        }
-
-        // --------------------------------------------------
-        // Load Splat
-        // --------------------------------------------------
-
-        try {
-            const result = await ImportMeshAsync(
-                targetUrl,
-                scene,
-                null,
-                ".splat"
-            );
-
-            const splatMesh = result.meshes[0];
-
-            if (splatMesh) {
-                splatMesh.name = "ClusterFly_Splat";
-                splatMesh.parent = this._attachedNode;
-
-                splatMesh.position = new Vector3(0, 0, 2);
-                splatMesh.scaling.setAll(5);
-                splatMesh.rotation.x = Math.PI;
-
-                console.log(
-                    ">>> Fly splat spawned at 5x scale at (0,0,2)."
-                );
-            }
-        } catch (error) {
-            console.error(
-                ">>> Runtime error during configuration:",
-                error
-            );
-        }
+    private async _loadSplat(url: string) {
+        const result = await ImportMeshAsync(url, this._attachedNode.getScene(), null, ".splat");
+        this._currentSplat = result.meshes[0] as Mesh;
+        this._currentSplat.parent = this._attachedNode;
+        this._currentSplat.position = new Vector3(0, 0, 2);
     }
 }
