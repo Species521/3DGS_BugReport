@@ -14,8 +14,8 @@
     "applyGravity": false,
     "updateUpVectorFromRotation": false,
     "rotation": [
-        0,
-        0,
+        -0.0025,
+        0.0625,
         0
     ],
     "speed": 500,

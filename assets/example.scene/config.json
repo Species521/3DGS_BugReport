@@ -114,13 +114,26 @@
             "iblShadowsRenderPipeline": null
         },
         {
-            "cameraId": "3ee0f345-7bea-4f59-a657-28c90a7d5e74"
+            "cameraId": "3ee0f345-7bea-4f59-a657-28c90a7d5e74",
+            "ssao2RenderingPipeline": null,
+            "vlsPostProcess": null,
+            "ssrRenderingPipeline": null,
+            "motionBlurPostProcess": null,
+            "defaultRenderingPipeline": null,
+            "taaRenderingPipeline": null,
+            "iblShadowsRenderPipeline": null
         }
     ],
     "metadata": {
         "rendering": [
             {
-                "cameraId": "3ee0f345-7bea-4f59-a657-28c90a7d5e74"
+                "cameraId": "3ee0f345-7bea-4f59-a657-28c90a7d5e74",
+                "ssao2RenderingPipeline": null,
+                "vlsPostProcess": null,
+                "ssrRenderingPipeline": null,
+                "motionBlurPostProcess": null,
+                "defaultRenderingPipeline": null,
+                "taaRenderingPipeline": null
             }
         ],
         "physicsGravity": [
@@ -145,8 +158,8 @@
         "applyGravity": false,
         "updateUpVectorFromRotation": false,
         "rotation": [
-            -0.05033315220645025,
-            -0.1834382980233938,
+            0.09216684779354972,
+            -0.004688298023393482,
             0
         ],
         "speed": 200,
@@ -173,6 +186,7 @@
         "name": "Editor preview",
         "id": "3cc9ef80-8c60-43e0-bcc4-1b55ff36010d",
         "state": "",
+        "metadata": {},
         "type": "EditorCamera",
         "inputsmgr": {
             "FreeCameraKeyboardMoveInput": {

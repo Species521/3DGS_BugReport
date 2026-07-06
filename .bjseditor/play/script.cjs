@@ -17,7 +17,7 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/src/scripts.ts
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/src/scripts.ts
 var scripts_exports = {};
 __export(scripts_exports, {
   _applyScriptsForObject: () => _applyScriptsForObject,
@@ -30,13 +30,13 @@ __export(scripts_exports, {
 });
 module.exports = __toCommonJS(scripts_exports);
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/loader.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/loader.js
 var import_babylonjs55 = require("babylonjs");
 var import_babylonjs56 = require("babylonjs");
 var import_babylonjs57 = require("babylonjs");
 var import_babylonjs58 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/guards.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/guards.js
 function isAbstractMesh(object) {
   switch (object.getClassName?.()) {
     case "Mesh":
@@ -128,7 +128,7 @@ function isSoundNode(object) {
 }
 __name(isSoundNode, "isSoundNode");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/mesh.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/mesh.js
 function configureMeshDistanceOrScreenCoverage(scene) {
   scene.meshes.forEach((mesh) => {
     if (!isMesh(mesh)) {
@@ -170,11 +170,11 @@ function applyMeshesLODQuality(quality, scene) {
 }
 __name(applyMeshesLODQuality, "applyMeshesLODQuality");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/light.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/light.js
 var import_babylonjs = require("babylonjs");
 var import_babylonjs2 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/scalar.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/scalar.js
 function getPowerOfTwoUntil(limit) {
   let size = 1;
   while (size <= limit) {
@@ -184,7 +184,7 @@ function getPowerOfTwoUntil(limit) {
 }
 __name(getPowerOfTwoUntil, "getPowerOfTwoUntil");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/light.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/light.js
 function configureShadowMapRenderListPredicate(scene) {
   scene.lights.forEach((light) => {
     const shadowMap = light.getShadowGenerator()?.getShadowMap();
@@ -210,7 +210,7 @@ async function configureShadowMapRefreshRate(scene) {
 }
 __name(configureShadowMapRefreshRate, "configureShadowMapRefreshRate");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/rendering/vls.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/rendering/vls.js
 var import_babylonjs3 = require("babylonjs");
 var import_babylonjs4 = require("babylonjs");
 var import_babylonjs5 = require("babylonjs");
@@ -249,7 +249,7 @@ function parseVLSPostProcess(scene, data) {
 }
 __name(parseVLSPostProcess, "parseVLSPostProcess");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/rendering/ssr.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/rendering/ssr.js
 var import_babylonjs6 = require("babylonjs");
 var ssrRenderingPipeline = null;
 var ssrRenderingPipelineCameraConfigurations = /* @__PURE__ */ new Map();
@@ -296,7 +296,7 @@ function parseSSRRenderingPipeline(scene, camera, data) {
 }
 __name(parseSSRRenderingPipeline, "parseSSRRenderingPipeline");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/rendering/taa.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/rendering/taa.js
 var import_babylonjs7 = require("babylonjs");
 var taaRenderingPipeline = null;
 var taaRenderingPipelineCameraConfigurations = /* @__PURE__ */ new Map();
@@ -327,7 +327,7 @@ function parseTAARenderingPipeline(scene, camera, data) {
 }
 __name(parseTAARenderingPipeline, "parseTAARenderingPipeline");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/rendering/ssao.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/rendering/ssao.js
 var import_babylonjs8 = require("babylonjs");
 var ssaoRenderingPipeline = null;
 var ssaoRenderingPipelineCameraConfigurations = /* @__PURE__ */ new Map();
@@ -365,7 +365,7 @@ function parseSSAO2RenderingPipeline(scene, camera, data) {
 }
 __name(parseSSAO2RenderingPipeline, "parseSSAO2RenderingPipeline");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/rendering/motion-blur.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/rendering/motion-blur.js
 var import_babylonjs9 = require("babylonjs");
 var motionBlurPostProcess = null;
 var motionBlurPostProcessCameraConfigurations = /* @__PURE__ */ new Map();
@@ -395,7 +395,7 @@ function parseMotionBlurPostProcess(scene, camera, data) {
 }
 __name(parseMotionBlurPostProcess, "parseMotionBlurPostProcess");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/rendering/default-pipeline.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/rendering/default-pipeline.js
 var import_babylonjs10 = require("babylonjs");
 var import_babylonjs11 = require("babylonjs");
 var import_babylonjs12 = require("babylonjs");
@@ -505,7 +505,7 @@ function parseDefaultRenderingPipeline(scene, camera, data, rootUrl) {
 }
 __name(parseDefaultRenderingPipeline, "parseDefaultRenderingPipeline");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/rendering/tools.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/rendering/tools.js
 function applyRenderingConfigurationForCamera(camera, rootUrl, options) {
   disposeSSAO2RenderingPipeline();
   disposeVLSPostProcess(camera.getScene());
@@ -540,7 +540,7 @@ function applyRenderingConfigurationForCamera(camera, rootUrl, options) {
 }
 __name(applyRenderingConfigurationForCamera, "applyRenderingConfigurationForCamera");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/physics.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/physics.js
 var import_babylonjs15 = require("babylonjs");
 var import_babylonjs16 = require("babylonjs");
 function configurePhysicsAggregate(transformNode) {
@@ -572,7 +572,7 @@ function configurePhysicsAggregate(transformNode) {
 }
 __name(configurePhysicsAggregate, "configurePhysicsAggregate");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/rendering.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/rendering.js
 function applyRenderingConfigurations(scene, rendering) {
   const postProcessConfigurations = Array.isArray(rendering) ? rendering : [];
   postProcessConfigurations.forEach((configuration) => {
@@ -602,7 +602,7 @@ function applyRenderingConfigurations(scene, rendering) {
 }
 __name(applyRenderingConfigurations, "applyRenderingConfigurations");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/decorators/apply.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/decorators/apply.js
 var import_babylonjs28 = require("babylonjs");
 var import_babylonjs29 = require("babylonjs");
 var import_babylonjs30 = require("babylonjs");
@@ -610,7 +610,7 @@ var import_babylonjs31 = require("babylonjs");
 var import_babylonjs32 = require("babylonjs");
 var import_babylonjs_gui = require("babylonjs-gui");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/request.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/request.js
 var import_babylonjs17 = require("babylonjs");
 function loadFile(url, responseType, progressCallback) {
   return new Promise((resolve, reject) => {
@@ -637,7 +637,7 @@ async function loadJsonFile(url, progressCallback) {
 }
 __name(loadJsonFile, "loadJsonFile");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/scene.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/scene.js
 function getNodeByName(name, scene) {
   const node = scene.getNodeByName(name);
   if (node) {
@@ -669,7 +669,7 @@ function getNodeById(id, scene) {
 }
 __name(getNodeById, "getNodeById");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/vector.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/vector.js
 var import_babylonjs18 = require("babylonjs");
 var import_babylonjs19 = require("babylonjs");
 function parseAxis(axis) {
@@ -687,7 +687,7 @@ function parseAxis(axis) {
 }
 __name(parseAxis, "parseAxis");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/ragdoll.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/ragdoll.js
 function parseRagdollConfiguration(configuration) {
   configuration.runtimeConfiguration.forEach((config) => {
     if (config.rotationAxis) {
@@ -724,10 +724,10 @@ function copyAndParseRagdollConfiguration(configuration) {
 }
 __name(copyAndParseRagdollConfiguration, "copyAndParseRagdollConfiguration");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/container/container.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/container/container.js
 var import_babylonjs25 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/tools.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/tools.js
 function cloneJSObject(source) {
   if (!source) {
     return source;
@@ -736,7 +736,7 @@ function cloneJSObject(source) {
 }
 __name(cloneJSObject, "cloneJSObject");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/sound.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/sound.js
 var import_babylonjs20 = require("babylonjs");
 var import_babylonjs21 = require("babylonjs");
 var import_babylonjs22 = require("babylonjs");
@@ -900,7 +900,7 @@ function registerAudioParser() {
 }
 __name(registerAudioParser, "registerAudioParser");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/transform-node.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/transform-node.js
 function configureTransformNodes(scene) {
   const computedMaterials = /* @__PURE__ */ new Set();
   scene.transformNodes.forEach((transformNode) => {
@@ -926,7 +926,7 @@ function configureTransformNodes(scene) {
 }
 __name(configureTransformNodes, "configureTransformNodes");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/container/entries.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/container/entries.js
 var AdvancedAssetContainerInstantiatedEntries = class {
   static {
     __name(this, "AdvancedAssetContainerInstantiatedEntries");
@@ -1015,7 +1015,7 @@ var AdvancedAssetContainerInstantiatedEntries = class {
   }
 };
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/container/container.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/container/container.js
 var AdvancedAssetContainer = class {
   static {
     __name(this, "AdvancedAssetContainer");
@@ -1168,7 +1168,7 @@ var AdvancedAssetContainer = class {
   }
 };
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/script/preload/scene.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/script/preload/scene.js
 var import_babylonjs26 = require("babylonjs");
 var import_babylonjs27 = require("babylonjs");
 async function preloadSceneScriptAsset(key, rootUrl, scene) {
@@ -1189,13 +1189,13 @@ async function preloadSceneScriptAsset(key, rootUrl, scene) {
 }
 __name(preloadSceneScriptAsset, "preloadSceneScriptAsset");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/script/preload/common.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/script/preload/common.js
 async function preloadCommonScriptAsset(key, rootUrl) {
   return loadJsonFile(`${rootUrl}${key}`);
 }
 __name(preloadCommonScriptAsset, "preloadCommonScriptAsset");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/script/preload.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/script/preload.js
 var scriptAssetsCache = /* @__PURE__ */ new Map();
 var scriptAssetsParsers = /* @__PURE__ */ new Map();
 async function _preloadScriptsAssets(rootUrl, scene, scriptsMap2) {
@@ -1267,7 +1267,7 @@ async function _preloadScriptsAssets(rootUrl, scene, scriptsMap2) {
 }
 __name(_preloadScriptsAssets, "_preloadScriptsAssets");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/decorators/apply.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/decorators/apply.js
 function applyDecorators(scene, object, script, instance, rootUrl) {
   const ctor = instance.constructor;
   if (!ctor) {
@@ -1498,7 +1498,7 @@ function applyDecorators(scene, object, script, instance, rootUrl) {
 }
 __name(applyDecorators, "applyDecorators");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/script/apply.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/script/apply.js
 function _applyScriptsForObject(scene, object, scriptsMap2, rootUrl) {
   if (!object.metadata?.scripts) {
     return;
@@ -1581,10 +1581,10 @@ function getScriptByClassForObject(object, classType) {
 }
 __name(getScriptByClassForObject, "getScriptByClassForObject");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/texture.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/texture.js
 var import_babylonjs33 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/texture.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/texture.js
 function addExcludedCompressedTexture(engine, textureUrl) {
   if (engine._excludedCompressedTextures && !engine._excludedCompressedTextures?.includes(textureUrl)) {
     engine._excludedCompressedTextures?.push(textureUrl);
@@ -1637,7 +1637,7 @@ function getTextureUrl(sourceProperty, scene) {
 }
 __name(getTextureUrl, "getTextureUrl");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/texture.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/texture.js
 var registered2 = false;
 function registerTextureParser() {
   if (registered2) {
@@ -1661,7 +1661,7 @@ function registerTextureParser() {
 }
 __name(registerTextureParser, "registerTextureParser");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/shadows.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/shadows.js
 var import_babylonjs34 = require("babylonjs");
 var import_babylonjs35 = require("babylonjs");
 var import_babylonjs36 = require("babylonjs");
@@ -1709,7 +1709,7 @@ function registerShadowGeneratorParser() {
 }
 __name(registerShadowGeneratorParser, "registerShadowGeneratorParser");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/morph-target-manager.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/morph-target-manager.js
 var import_babylonjs38 = require("babylonjs");
 var import_babylonjs39 = require("babylonjs");
 var registered4 = false;
@@ -1790,7 +1790,7 @@ function registerMorphTargetManagerParser() {
 }
 __name(registerMorphTargetManagerParser, "registerMorphTargetManagerParser");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/light.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/light.js
 var import_babylonjs40 = require("babylonjs");
 function configureLights(scene, clusteredLightContainer) {
   clusteredLightContainer ??= new import_babylonjs40.ClusteredLightContainer("Clustered Light Container", [], scene);
@@ -1813,7 +1813,7 @@ function configureLights(scene, clusteredLightContainer) {
 }
 __name(configureLights, "configureLights");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/sprite-map.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/sprite-map.js
 var import_babylonjs41 = require("babylonjs");
 var import_babylonjs42 = require("babylonjs");
 var import_babylonjs43 = require("babylonjs");
@@ -1822,7 +1822,7 @@ var import_babylonjs45 = require("babylonjs");
 var import_babylonjs46 = require("babylonjs");
 var import_babylonjs47 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/sprite.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/sprite.js
 function normalizeAtlasJson(data) {
   if (!Array.isArray(data.frames)) {
     const frames = [];
@@ -1837,7 +1837,7 @@ function normalizeAtlasJson(data) {
 }
 __name(normalizeAtlasJson, "normalizeAtlasJson");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/sprite-map.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/sprite-map.js
 var registered5 = false;
 function registerSpriteMapParser() {
   if (registered5) {
@@ -1890,7 +1890,7 @@ function registerSpriteMapParser() {
 }
 __name(registerSpriteMapParser, "registerSpriteMapParser");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/sprite-manager.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/sprite-manager.js
 var import_babylonjs48 = require("babylonjs");
 var import_babylonjs49 = require("babylonjs");
 var import_babylonjs50 = require("babylonjs");
@@ -1973,7 +1973,7 @@ function registerSpriteManagerParser() {
 }
 __name(registerSpriteManagerParser, "registerSpriteManagerParser");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/node-particle-system-set.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/node-particle-system-set.js
 var import_babylonjs53 = require("babylonjs");
 var import_babylonjs54 = require("babylonjs");
 var registered7 = false;
@@ -2023,7 +2023,7 @@ function registerNodeParticleSystemSetParser() {
 }
 __name(registerNodeParticleSystemSetParser, "registerNodeParticleSystemSetParser");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/loader.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/loader.js
 var sceneConfigurationMap = /* @__PURE__ */ new Map();
 async function waitForWaitingItems(scene, onProgress) {
   const waitingItemsCount = scene.getWaitingItemsCount();
@@ -2116,45 +2116,45 @@ async function loadScene(rootUrl, sceneFilename, scene, scriptsMap2, options) {
 }
 __name(loadScene, "loadScene");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/material.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/material.js
 var import_babylonjs59 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/animation.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/animation.js
 var import_babylonjs60 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/tools/particle.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/tools/particle.js
 var import_babylonjs61 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/cinematic/parse.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/cinematic/parse.js
 var import_babylonjs63 = require("babylonjs");
 var import_babylonjs64 = require("babylonjs");
 var import_babylonjs65 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/cinematic/tools.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/cinematic/tools.js
 var import_babylonjs62 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/cinematic/generate.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/cinematic/generate.js
 var import_babylonjs69 = require("babylonjs");
 var import_babylonjs70 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/cinematic/events/apply-impulse.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/cinematic/events/apply-impulse.js
 var import_babylonjs66 = require("babylonjs");
 var zeroVector = import_babylonjs66.Vector3.Zero();
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/cinematic/cinematic.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/cinematic/cinematic.js
 var import_babylonjs67 = require("babylonjs");
 var import_babylonjs68 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/database/database.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/database/database.js
 var import_babylonjs71 = require("babylonjs");
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/node_modules/babylonjs-editor-tools/build/src/loading/database/preload.js
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/node_modules/babylonjs-editor-tools/build/src/loading/database/preload.js
 var supportedJsonExtensions = ["babylon", "json"];
 var supportedImageExtensions = ["jpg", "jpeg", "png", "bmp", "webp"];
 var supportedBinaryExtensions = ["bin", "babylonbinarymeshdata", "mp3", "wav", "ktx", "ktx2"];
 var allSupportedExtensions = [...supportedJsonExtensions, ...supportedImageExtensions, ...supportedBinaryExtensions];
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/src/scripts/splat_loader_script_001.ts
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/src/scripts/splat_loader_script_001.ts
 var splat_loader_script_001_exports = {};
 __export(splat_loader_script_001_exports, {
   default: () => SplatLoaderScript
@@ -2163,72 +2163,81 @@ var import_babylonjs72 = require("babylonjs");
 var import_babylonjs_loaders = require("babylonjs-loaders");
 var import_babylonjs_gui2 = require("babylonjs-gui");
 var import_babylonjs_gui3 = require("babylonjs-gui");
+var import_babylonjs_gui4 = require("babylonjs-gui");
 var SplatLoaderScript = class {
   static {
     __name(this, "SplatLoaderScript");
   }
   _attachedNode;
-  _fpsText = null;
+  _currentSplat = null;
+  _currentIndex = 0;
+  _urls = [
+    "https://raw.githubusercontent.com/Species521/3DGS_storage/main/clusterFly_M.ply",
+    "https://raw.githubusercontent.com/Species521/3DGS_storage/main/Carabus_cancellatus_oligoscythus_bukowiniacus/Carabus_cancellatus_oligoscythus_bukowiniacus_med_noPin.ply",
+    "https://raw.githubusercontent.com/Species521/3DGS_storage/main/Ixodes_holocyclus/Ixodes_holocyclus_Mid_noPin.ply"
+  ];
   constructor(attachedNode) {
     this._attachedNode = attachedNode;
   }
   async onStart() {
-    console.log(">>> Splat loader initialized.");
-    const targetUrl = "https://species521.github.io/3DGS_storage/clusterFly_S.ply";
+    console.log("SplatLoaderScript has started!");
     const scene = this._attachedNode.getScene();
-    const gui = import_babylonjs_gui2.AdvancedDynamicTexture.CreateFullscreenUI(
-      "FPS_UI",
-      true,
-      scene
+    const gui = import_babylonjs_gui2.AdvancedDynamicTexture.CreateFullscreenUI("UI", true, scene);
+    console.log("GUI created.");
+    const rect = new import_babylonjs_gui4.Rectangle("test");
+    rect.width = "300px";
+    rect.height = "150px";
+    rect.background = "red";
+    rect.thickness = 0;
+    gui.addControl(rect);
+    console.log("Rectangle added.");
+    const uiImage = new import_babylonjs_gui3.Image(
+      "overlay",
+      "assets/graphics/UI_overlay_01.png"
     );
-    this._fpsText = new import_babylonjs_gui3.TextBlock();
-    this._fpsText.text = "FPS: 0";
-    this._fpsText.color = "white";
-    this._fpsText.fontSize = 24;
-    this._fpsText.top = "-45%";
-    this._fpsText.left = "-40%";
-    this._fpsText.textHorizontalAlignment = 0;
-    this._fpsText.textVerticalAlignment = 0;
-    gui.addControl(this._fpsText);
-    scene.onAfterRenderObservable.add(() => {
-      if (this._fpsText) {
-        this._fpsText.text = "FPS: " + scene.getEngine().getFps().toFixed(1);
-      }
-    });
-    if (scene.activeCamera) {
-      scene.activeCamera.speed = 0.1;
-      console.log(
-        `>>> Camera speed reduced to: ${scene.activeCamera.speed}`
-      );
+    uiImage.stretch = import_babylonjs_gui3.Image.STRETCH_FILL;
+    gui.addControl(uiImage);
+    await this._loadSplat(this._urls[0]);
+  }
+  async _cycleSplat(dir) {
+    this._currentIndex = (this._currentIndex + dir + this._urls.length) % this._urls.length;
+    if (this._currentSplat) {
+      this._currentSplat.dispose();
     }
+    await this._loadSplat(this._urls[this._currentIndex]);
+  }
+  async _loadSplat(url) {
+    console.log("Attempting load:", url);
     try {
+      const scene = this._attachedNode.getScene();
       const result = await (0, import_babylonjs72.ImportMeshAsync)(
-        targetUrl,
+        url,
         scene,
         null,
-        ".splat"
+        ".ply"
+        // IMPORTANT: matches your files
       );
-      const splatMesh = result.meshes[0];
-      if (splatMesh) {
-        splatMesh.name = "ClusterFly_Splat";
-        splatMesh.parent = this._attachedNode;
-        splatMesh.position = new import_babylonjs72.Vector3(0, 0, 2);
-        splatMesh.scaling.setAll(5);
-        splatMesh.rotation.x = Math.PI;
-        console.log(
-          ">>> Fly splat spawned at 5x scale at (0,0,2)."
-        );
+      console.log("Import result:", result);
+      if (!result.meshes || result.meshes.length === 0) {
+        console.error("No meshes returned from loader!");
+        return;
       }
-    } catch (error) {
-      console.error(
-        ">>> Runtime error during configuration:",
-        error
-      );
+      this._currentSplat = result.meshes[0];
+      if (!this._currentSplat) {
+        console.error("First mesh is null/undefined!");
+        return;
+      }
+      this._currentSplat.parent = this._attachedNode;
+      this._currentSplat.position = new import_babylonjs72.Vector3(0, 0, 2);
+      console.log("Splat successfully attached to scene.");
+    } catch (err) {
+      console.error("\u{1F525} ImportMeshAsync FAILED:", err);
+      console.error("URL used:", url);
     }
   }
 };
 
-// ../../PROJECTS/BABYLON_JS/project_002_github/3DGS_webViewer/src/scripts.ts
+// ../../PROJECTS/BABYLON_JS/project_003_github/3DGS_BugReport/src/scripts.ts
 var scriptsMap = {
   "scripts/splat_loader_script_001.ts": splat_loader_script_001_exports
 };
